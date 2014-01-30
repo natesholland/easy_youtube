@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "This is a simple Gem for dealing with youtube videos"
   s.authors     = ["Nate Holland"]
   s.email       = 'natesholland@gmail.com'
-  s.files       = ["easy_youtube.rb"]
+  s.files       = ["lib/easy_youtube.rb"]
   s.homepage    =
     'https://github.com/natesholland/easy_youtube'
   s.license       = 'MIT'

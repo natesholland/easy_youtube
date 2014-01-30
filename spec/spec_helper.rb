@@ -8,7 +8,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require './lib/easy_youtube.rb' # and any other gems you need
+require 'easy_youtube' # and any other gems you need
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
