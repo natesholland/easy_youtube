@@ -1,3 +1,4 @@
+require "net/http"
 class EasyYouTube
     URL_FORMATS = {
         regular: /^(https?:\/\/)?(www\.)?youtube.com\/watch\?(.*\&)?v=(?<id>[^&]+)/,
@@ -35,19 +36,27 @@ class EasyYouTube
     	video_id = extract_video_id(youtube_url)
     	"http://youtu.be/#{ video_id }"
   	end
+	
+	def self.valid_id?(id)
+		if id
+	    	response = Net::HTTP.get("gdata.youtube.com", "/feeds/api/videos/#{id}")
+	    	if ["Invalid id", "Video not found"].include? response
+	      		false
+	    	else
+	      		true
+	    	end
+		else
+			false
+		end
+	end	
 
-  def self.valid_youtube_link?(youtube_url)
-    video_id = extract_video_id(youtube_url)
-    if video_id
-	    response = Net::HTTP.get("gdata.youtube.com", "/feeds/api/videos/#{video_id}")
-	    if ["Invalid id", "Video not found"].include? response
-	      false
-	    else
-	      true
-	    end
-	else
-		false
-	end
-  end
+  	def self.valid_youtube_link?(youtube_url)
+  		if has_invalid_chars?(youtube_url)
+  			false
+  		else
+    		video_id = extract_video_id(youtube_url)
+  			valid_id?(id)
+  		end
+  	end
 
 end
