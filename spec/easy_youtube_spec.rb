@@ -45,4 +45,10 @@ describe EasyYouTube do
       EasyYouTube.youtube_regular_url("http://www.youtube.com/watch?v=L57s0Q2qgYg").should == "http://www.youtube.com/watch?v=L57s0Q2qgYg"
     end
   end
+
+  describe "the youtube_shortened_url method" do
+    it "should construct valid shortened url" do
+      EasyYouTube.youtube_shortened_url("http://www.youtube.com/watch?v=L57s0Q2qgYg").should == "http://youtu.be/L57s0Q2qgYg"
+    end
+  end
 end

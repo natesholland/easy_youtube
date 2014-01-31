@@ -40,10 +40,13 @@ class EasyYouTube
   end
 
   def self.youtube_shortened_url(youtube_url)
-    video_id = extract_video_id(youtube_url)
-    "http://youtu.be/#{ video_id }"
+    create_shortened_url(extract_video_id(youtube_url))
   end
-        
+
+  def self.create_shortened_url(video_id)
+    "http://youtu.be/#{ video_id }"      
+  end
+
   def self.valid_id?(id)
     if id
       response = Net::HTTP.get("gdata.youtube.com", "/feeds/api/videos/#{id}")
