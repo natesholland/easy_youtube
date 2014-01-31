@@ -16,4 +16,12 @@ describe EasyYouTube do
   		EasyYouTube.valid_id?('L57s0Q2qgYg').should be_true
   	end
   end
+
+  describe "the extract_video_id method" do
+    it "should return nil if the url is not valid" do
+      EasyYouTube.extract_video_id("not a valid url").should be_nil
+      EasyYouTube.extract_video_id("github.com/?id=L57s0Q2qgYg").should be_nil
+    end
+
+  end
 end

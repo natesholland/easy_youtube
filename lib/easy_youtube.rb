@@ -15,7 +15,8 @@ class EasyYouTube
                 URL_FORMATS.values.each do |format_regex|
                         match = format_regex.match(youtube_url)
                     return match[:id] if match
-              end
+                end
+                return nil
         end
 
         def self.has_invalid_chars?(youtube_url)
