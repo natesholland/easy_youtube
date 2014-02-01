@@ -64,8 +64,7 @@ class EasyYouTube
     if has_invalid_chars?(youtube_url)
       false
     else
-      video_id = extract_video_id(youtube_url)
-      valid_id?(id)
+      valid_id?(extract_video_id(youtube_url))
     end
   end
 end
