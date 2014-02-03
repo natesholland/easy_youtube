@@ -48,7 +48,38 @@ describe EasyYouTube do
 
   describe "the youtube_shortened_url method" do
     it "should construct valid shortened url" do
-      EasyYouTube.youtube_shortened_url("http://www.youtube.com/watch?v=L57s0Q2qgYg").should == "http://youtu.be/L57s0Q2qgYg"
+      EasyYouTube.youtube_shortened_url("http://www.youtube.com/watch?v=L57s0Q2qgYgr").should == "http://youtu.be/L57s0Q2qgYgr"
+    end
+  end
+
+  describe "the invalid_characters method" do
+    it "should return false for all valid character" do
+      EasyYouTube.has_invalid_chars?("ABCDEFGHIJKLMNOPQRSTUVWXYZ").should be_false
+      EasyYouTube.has_invalid_chars?("abcdefghijklmnopqrstuvwxyz").should be_false
+      EasyYouTube.has_invalid_chars?("0123456789").should be_false
+      EasyYouTube.has_invalid_chars?("./?=").should be_false
+    end
+
+    it "should return true for invalid characters" do
+      EasyYouTube.has_invalid_chars?("ABCDEFGHIJKLMNOPQRSTUVWXYZ#").should be_true
+      EasyYouTube.has_invalid_chars?("abcd^").should be_true
+    end
+  end
+
+  describe "the valid_youtube_url method" do 
+    it "should return false for random addresses, invalid_characters, and nil calls" do
+      Net::HTTP.stub(:get).and_return("This is valid")
+      EasyYouTube.valid_youtube_url?("abc123").should be_false
+      EasyYouTube.valid_youtube_url?("http://www.youtube.com/watch?v=L57s0#2qgYg").should be_false
+      EasyYouTube.valid_youtube_url?("https://github.com/natesholland/easy_youtube").should be_false
+      EasyYouTube.valid_youtube_url?("").should be_false
+    end
+
+    it "should return true for legitimate urls" do
+      Net::HTTP.stub(:get).and_return("This is valid")
+      EasyYouTube.valid_youtube_url?("http://www.youtube.com/watch?v=L57s02qgYg").should be_true
+      EasyYouTube.valid_youtube_url?("http://www.youtube.com/watch?feature=player_embedded&v=L57s0Q2qgYg").should be_true
+      EasyYouTube.valid_youtube_url?("http://youtu.be/L57s0Q2qgYgr").should be_true
     end
   end
 end

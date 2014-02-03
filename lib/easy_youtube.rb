@@ -60,7 +60,7 @@ class EasyYouTube
     end
   end        
 
-  def self.valid_youtube_link?(youtube_url)
+  def self.valid_youtube_url?(youtube_url)
     if has_invalid_chars?(youtube_url)
       false
     else
