@@ -4,7 +4,7 @@
 {<img src="https://travis-ci.org/natesholland/easy_youtube.png?branch=master" alt="Build Status" />}[https://travis-ci.org/natesholland/easy_youtube]
 {<img src="https://codeclimate.com/github/natesholland/easy_youtube.png" />}[https://codeclimate.com/github/natesholland/easy_youtube]
 
-== DECRIPTION:
+== Description
 
 Easy YouTube is a gem designed to simplify some common methods surrounding parsing youtube urls and id's.
 
@@ -16,7 +16,7 @@ Download and install Easy YouTube with the following.
 
    gem install easy_youtube
    
-=== Usage
+== Usage
 
 Easy Youtube is a relatively simple gem which can be easily understood by reading the source code but here
 are some useful examples:
@@ -48,7 +48,7 @@ are some useful examples:
    > EasyYouTube.create_regular_url("L57s0Q2qgYg")
    => "http://www.youtube.com/watch?v=L57s0Q2qgYg"
 
-== LICENSE:
+== License
 
 (The MIT License)
 
