@@ -5,4 +5,6 @@ Easy YouTube
 [![Gem Version](https://badge.fury.io/rb/easy_youtube.png)](http://badge.fury.io/rb/easy_youtube)
 [![Build Status](https://travis-ci.org/natesholland/easy_youtube.png?branch=master)](https://travis-ci.org/natesholland/easy_youtube)
 
-This gem is currently in development and should not be considered stable.
+== DECRIPTION:
+
+Easy YouTube is a gem designed to simplify some common methods surrounding parsing youtube urls and id's
