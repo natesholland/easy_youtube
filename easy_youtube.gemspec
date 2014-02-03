@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'easy_youtube'
-  s.version     = '1.0.0'
-  s.date        = '2014-01-30'
+  s.version     = '1.0.1'
+  s.date        = '2014-02-02'
   s.summary     = "Youtube helper functions"
   s.description = "This is a simple Gem for dealing with youtube videos"
   s.authors     = ["Nate Holland"]
