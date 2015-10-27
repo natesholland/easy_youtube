@@ -67,4 +67,8 @@ class EasyYouTube
       valid_id?(extract_video_id(youtube_url))
     end
   end
+  
+  def self.thumb_video(video_id)
+    "https://i.ytimg.com/vi/#{ video_id }/hqdefault.jpg"
+  end
 end
