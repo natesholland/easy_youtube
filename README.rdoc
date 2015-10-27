@@ -38,6 +38,11 @@ are some useful examples:
    => true
    > EasyYouTube.EasyYouTube.valid_id?('notvalid')
    => false
+   
+ * Return thumb video
+
+   > EasyYouTube.thumb_video("https://youtu.be/cD4TAgdS_Xw")
+   => "https://i.ytimg.com/vi/cD4TAgdS_Xw/hqdefault.jpg"
 
 
 
